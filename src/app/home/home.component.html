@@ -1,28 +1,27 @@
 <mat-card class="home-container">
-    <!-- Title Section (Top) -->
-    <div class="chat-header">
-      <h1 class="title">AI-Powered Solution for Accelerating Defect Resolution (ADR)</h1>
+  <!-- Title Section (Top) -->
+  <div class="chat-header">
+    <h1 class="title">AI-Powered Solution for Accelerating Defect Resolution (ADR)</h1>
+  </div>
+
+  <!-- Chat Input Box (Middle) -->
+  <div class="input-container">
+    <mat-form-field appearance="outline" class="input-box">
+      <mat-label>Ask Dell AI..</mat-label>
+      <input matInput [(ngModel)]="userQuery" (keyup.enter)="searchQuery()">
+    </mat-form-field>
+    <button mat-icon-button (click)="searchQuery()">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+
+  <!-- Suggestions (Below Input Box) -->
+  <div class="suggestions-container">
+    <div class="suggestions-title">Example Questions</div>
+    <div class="suggestions-grid">
+      <mat-card class="suggestion-item" *ngFor="let suggestion of suggestions.slice(0, 3)" (click)="selectSuggestion(suggestion)">
+        <mat-card-content>{{ suggestion }}</mat-card-content>
+      </mat-card>
     </div>
-  
-    <!-- Chat Input Box (Middle) -->
-    <div class="input-container">
-      <mat-form-field appearance="outline" class="input-box">
-        <mat-label>Type your query...</mat-label>
-        <input matInput [(ngModel)]="userQuery" (keyup.enter)="searchQuery()">
-      </mat-form-field>
-      <button mat-icon-button color="primary" (click)="searchQuery()">
-        <mat-icon>send</mat-icon>
-      </button>
-    </div>
-  
-    <!-- Suggestions (Below Input Box) -->
-    <div class="suggestions-container">
-      <div class="suggestions-title">Suggested Questions</div>
-      <div class="suggestions-grid">
-        <mat-card class="suggestion-item" *ngFor="let suggestion of suggestions.slice(0, 3)" (click)="selectSuggestion(suggestion)">
-          <mat-card-content>{{ suggestion }}</mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </mat-card>
-  
+  </div>
+</mat-card>
