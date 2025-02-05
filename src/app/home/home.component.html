@@ -1,13 +1,13 @@
 <mat-card class="home-container">
-  <!-- Title Section (Top) -->
+  <!-- Animated Typewriter Message (Top) -->
   <div class="chat-header">
-    <h1 class="title">AI-Powered Solution for Accelerating Defect Resolution (ADR)</h1>
+    <h1 class="typewriter">{{ displayedText }}<span *ngIf="showCursor" class="cursor">|</span></h1>
   </div>
 
   <!-- Chat Input Box (Middle) -->
   <div class="input-container">
     <mat-form-field appearance="outline" class="input-box">
-      <mat-label>Ask Dell AI..</mat-label>
+      <mat-label>Enter defect description or Jira ID...</mat-label>
       <input matInput [(ngModel)]="userQuery" (keyup.enter)="searchQuery()">
     </mat-form-field>
     <button mat-icon-button (click)="searchQuery()">
@@ -17,11 +17,23 @@
 
   <!-- Suggestions (Below Input Box) -->
   <div class="suggestions-container">
-    <div class="suggestions-title">Example Questions</div>
+    <div class="suggestions-title">Example Defects</div>
     <div class="suggestions-grid">
       <mat-card class="suggestion-item" *ngFor="let suggestion of suggestions.slice(0, 3)" (click)="selectSuggestion(suggestion)">
         <mat-card-content>{{ suggestion }}</mat-card-content>
       </mat-card>
     </div>
+  </div>
+
+  <!-- Overview Section -->
+  <div class="overview">
+    <h3>What does this tool do?</h3>
+    <p>
+      The AI-Powered Solution for Accelerating Defect Resolution (ADR) is designed to automate and streamline defect resolution.
+      By analyzing past Jira issues and resolutions, ADR suggests the best possible solutions for reported defects. 
+      It can also automate the entire defect resolution process, from <strong>suggesting fixes</strong> to <strong>applying patches</strong>, 
+      <strong> triggering builds</strong>, <strong>running tests</strong>, and <strong>raising change requests (CRs)</strong>. 
+      Once approved, the system proceeds with <strong>pull requests (PRs), final validation, and closing JIRA </strong> — ensuring faster and more reliable defect resolution.
+    </p>
   </div>
 </mat-card>
