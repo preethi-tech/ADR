@@ -1,0 +1,67 @@
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component } from '@angular/core';
+
+interface Issue {
+  title: string;
+  description: string;
+  resolution: string;
+  comments: string;
+}
+
+@Component({
+  selector: 'app-home',
+  standalone: false,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
+})
+export class HomeComponent {
+  // fullText: string = 'Hello User, How may I help you?';
+  fullTexts: string[] = [
+    'Hello User, Welcome to ADR!',
+    'Enter your defect details to start the resolution process...'
+  ];
+  displayedText: string = '';
+  typingSpeed: number = 50; // Speed of typing effect in milliseconds
+  showCursor: boolean = true; // Cursor visibility flag
+
+  userQuery: string = '';
+  suggestions: string[] = [
+    'PSCALE-245685 - Application crashes on startup',
+    'PSCALE-242285 - System slow after latest patch',
+    'PSCALE-246785 - API not returning expected data in production',
+  ];
+
+  ngOnInit() {
+    this.typeText();
+  }
+
+  typeText() {
+    let i = 0;
+    let fullIndex = 0;
+
+    const interval = setInterval(() => {
+      if (fullIndex < this.fullTexts.length) {
+        if (i < this.fullTexts[fullIndex].length) {
+          this.displayedText += this.fullTexts[fullIndex].charAt(i);
+          i++;
+        } else {
+          this.displayedText += '\n'; // New line for next message
+          i = 0;
+          fullIndex++;
+        }
+      } else {
+        clearInterval(interval);
+        this.showCursor = false; // Hide cursor when typing is complete
+      }
+    }, this.typingSpeed);
+  }
+
+  searchQuery() {
+    console.log('Searching for:', this.userQuery);
+  }
+
+  selectSuggestion(suggestion: string) {
+    this.userQuery = suggestion;
+    this.searchQuery();
+  }
+}

@@ -1,0 +1,196 @@
+* {
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100%;
+  // height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f5f5f5; /* White Background */
+  color: #333; /* Dark Gray Text */
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+// .greeting {
+//   font-size: 1.5rem;
+//   font-weight: bold;
+//   text-align: center;
+//   color: #333;
+//   opacity: 0;
+// }
+
+.typewriter {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  white-space: pre-line;
+  overflow: hidden;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  background-color: black;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.pipeline-container {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222;
+    text-align: center;
+  }
+
+  ol {
+    padding-left: 20px;
+    font-size: 1rem;
+    color: #444;
+
+    li {
+      margin: 8px 0;
+    }
+  }
+}
+
+.chat-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #383737; /* Darker Gray Text */
+  width: 100%;
+  min-height: 100px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  max-width: 1000px;
+  min-width: 800px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+mat-form-field {
+  flex-grow: 1;
+  width: 100%;
+
+  input {
+    color: #333 !important;
+  }
+}
+
+.input-box {
+  --mdc-outlined-text-field-outline-color: rgb(0, 0, 0);
+}
+
+::ng-deep .mat-mdc-text-field.mdc-text-field--focused {
+  --mdc-outlined-text-field-outline-color: red !important; /* Focused */
+}
+
+
+mat-form-field mat-label {
+  font-weight: 500;
+  color: #007bff; 
+}
+
+mat-form-field mat-input-element {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 4px;
+  background: #f8f9fa; /* Light Gray */
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+mat-form-field mat-input-element:focus {
+  background: #fff;
+  border: 1px solid #888;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button mat-icon {
+  font-size: 24px;
+  color: #007bff; /* Neutral Icon */
+  margin-left: 10px;
+}
+
+.suggestions-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 10px;
+}
+
+.suggestions-title {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #666; /* Neutral Gray */
+}
+
+.suggestions-grid {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.suggestion-item {
+  background: #eaeaea;
+  color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  flex: 1;
+  min-width: 120px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item:hover {
+  background: #dcdcdc;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.overview {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f1f1f1;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.overview h3 {
+  font-size: 20px;
+  color: #007bff;
+}
+
+.overview p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
