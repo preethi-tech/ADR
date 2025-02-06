@@ -1,5 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 interface Issue {
   title: string;
@@ -31,6 +33,8 @@ export class HomeComponent {
     'PSCALE-246785 - API not returning expected data in production',
   ];
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.typeText();
   }
@@ -57,11 +61,20 @@ export class HomeComponent {
   }
 
   searchQuery() {
+
+    if (!this.userQuery.trim()) {
+      return;
+    }
+
     console.log('Searching for:', this.userQuery);
+    const queryId = uuidv4();
+    const query = {'queryId': queryId, 'query': this.userQuery};
+    sessionStorage.setItem('userQuery', JSON.stringify(query));
+    this.router.navigate(['/results'], { queryParams: { queryId: queryId } });
   }
 
   selectSuggestion(suggestion: string) {
     this.userQuery = suggestion;
-    this.searchQuery();
   }
 }
+

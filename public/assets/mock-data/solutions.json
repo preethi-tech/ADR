@@ -1,0 +1,55 @@
+{
+    "PSCALE-245685 - Application crashes on startup": [
+      {
+        "code": "# Solution 1: Update dependencies in setup.py\n def update_dependencies() {\n     with open('setup.py', 'r') as file:\n         lines = file.readlines()\n     lines = [line for line in lines if 'some-old-dependency' not in line]\n     lines.append('install_requires=[\"new-dependency==2.0.0\"]\n')\n     with open('setup.py', 'w') as file:\n         file.writelines(lines)\n         print(\"Dependencies updated.\")",
+        "description": "Update dependencies in setup.py for compatibility."
+      },
+      {
+        "code": "# Solution 2: Refactor function to support Python 3\ndef legacy_code(): pass",
+        "description": "Use Python 3 features for compatibility."
+      }
+    ],
+    "PSCALE-242285 - System slow after latest patch": [
+      {
+        "code": "# Solution 1: Optimize database queries\nEXPLAIN ANALYZE SELECT * FROM large_table WHERE condition=true;",
+        "description": "Improve query performance."
+      },
+      {
+        "code": "# Solution 2: Upgrade hardware resources\nRecommended: 16GB RAM, SSD Storage.",
+        "description": "Consider upgrading system resources."
+      }
+    ],
+    "PSCALE-246785 - API not returning expected data in production": [
+      {
+        "code": "# Solution 1: Check API configurations\nresponse = requests.get(\"http://api.example.com/data\")",
+        "description": "Verify API configurations."
+      },
+      {
+        "code": "# Solution 2: Check for database connectivity issues\nconn = psycopg2.connect(database=\"prod_db\", user=\"admin\")",
+        "description": "Ensure database connectivity."
+      }
+    ],
+    "default": [
+        {
+            "code": "# Solution 1: Check API configurations\nresponse = requests.get(\"http://api.example.com/data\")",
+            "description": "Verify API configurations."
+        },
+        {
+            "code": "# Solution 2: Upgrade hardware resources\nRecommended: 16GB RAM, SSD Storage.",
+            "description": "Consider upgrading system resources."
+        },
+        {
+            "code": "# Solution 3: Optimize database queries\nEXPLAIN ANALYZE SELECT * FROM large_table WHERE condition=true;",
+            "description": "Improve query performance."
+        },
+        {
+            "code": "# Solution 4: Refactor function to support Python 3\ndef legacy_code(): pass",
+            "description": "Use Python 3 features for compatibility."
+        },
+        {
+            "code": "# Solution 4: Refactor function to support Python 3\ndef legacy_code(): pass",
+            "description": "Use Python 3 features for compatibility."
+        }
+    ]
+  }
+  

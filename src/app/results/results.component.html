@@ -1,0 +1,35 @@
+<div class="results-container">
+  <p class="query-display"><strong>Defect Query:</strong> {{ userQuery }}</p>
+
+  <h3>Suggested Solutions</h3>
+
+  <!-- Skeleton Loader (Shown While Loading) -->
+  <div *ngIf="loading" class="solutions-grid">
+    <div *ngFor="let _ of skeletonArray" class="solution-card skeleton">
+      <div class="skeleton-text skeleton-title"></div>
+      <div class="skeleton-text skeleton-description"></div>
+      <div class="skeleton-text skeleton-code"></div>
+      <div class="skeleton-button"></div>
+    </div>
+  </div>
+
+  <!-- Solutions Section (With Horizontal Scroll) -->
+  <div *ngIf="!loading" class="scroll-container" [class.horizontal]="solutions.length > 2">
+    <div class="solutions-grid">
+      <div *ngFor="let solution of solutions; let i = index" class="solution-card">
+        <div class="solution-header">
+          <h4>Solution {{ i + 1 }}</h4>
+        </div>
+
+        <div class="solution-body">
+          <pre class="solution-code">{{ solution.code }}</pre>
+          <p class="solution-description">{{ solution.description }}</p>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn-apply">Apply Fix</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
