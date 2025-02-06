@@ -1,0 +1,203 @@
+.results-container {
+  max-width: 100%;
+  padding: 20px;
+  text-align: center;
+  min-height: 85vh;
+}
+
+.query-display {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+h3 {
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 22px;
+}
+
+/* Solution Grid & Horizontal Scroll */
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.scroll-container.horizontal {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 15px;
+}
+
+.solutions-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  padding: 10px; 
+}
+
+.solution-card {
+  flex: 0 0 auto; 
+  width: 380px;
+}
+
+
+.solutions-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Solution Cards & Skeleton Loaders */
+.solution-card,
+.skeleton {
+  min-width: 380px;
+  min-height: 280px;
+  border-radius: 12px;
+  padding: 18px;
+  background: #ffffff;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Skeleton Loader Styling */
+.skeleton {
+  background-color: #f4f4f4;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton-text {
+  height: 16px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f8f8f8 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 5px;
+  margin-bottom: 12px;
+}
+
+.skeleton-title {
+  width: 70%;
+  height: 22px;
+}
+
+.skeleton-description {
+  width: 90%;
+}
+
+.skeleton-code {
+  width: 100%;
+  height: 70px;
+  border-radius: 6px;
+}
+
+.skeleton-button {
+  width: 120px;
+  height: 35px;
+  background: #ccc;
+  border-radius: 8px;
+}
+
+/* Solution Styling */
+.solution-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.solution-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Code Styling */
+.solution-code {
+  background-color: #2a2a2a;  /* Dark background for the code block */
+  padding: 12px;
+  border-radius: 6px;
+  text-align: left;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  color: #f5f5f5;  /* Light text color for code */
+  overflow-x: auto;
+  border-left: 4px solid #007bff;  /* Blue left border for emphasis */
+  white-space: pre-wrap;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);  /* Subtle shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution-code:hover {
+  background-color: #333333;  /* Slightly lighter on hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);  /* Stronger shadow on hover */
+}
+
+
+.solution-description {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.btn-select,
+.btn-apply {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-select {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-apply {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-select:hover {
+  background-color: #0056b3;
+}
+
+.btn-apply:hover {
+  background-color: #218838;
+}
+
+/* Loading Animations */
+@keyframes loading {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
