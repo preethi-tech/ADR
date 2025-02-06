@@ -1,55 +1,66 @@
 {
     "PSCALE-245685 - Application crashes on startup": [
-      {
-        "code": "# Solution 1: Update dependencies in setup.py\n def update_dependencies() {\n     with open('setup.py', 'r') as file:\n         lines = file.readlines()\n     lines = [line for line in lines if 'some-old-dependency' not in line]\n     lines.append('install_requires=[\"new-dependency==2.0.0\"]\n')\n     with open('setup.py', 'w') as file:\n         file.writelines(lines)\n         print(\"Dependencies updated.\")",
-        "description": "Update dependencies in setup.py for compatibility."
-      },
-      {
-        "code": "# Solution 2: Refactor function to support Python 3\ndef legacy_code(): pass",
-        "description": "Use Python 3 features for compatibility."
-      }
+        {
+            "code": "# Solution 1: Update dependencies in requirements.txt\nimport subprocess\nsubprocess.run(['pip', 'install', '--upgrade', '-r', 'requirements.txt'])",
+            "description": "Ensure all dependencies are up-to-date to avoid compatibility issues."
+        },
+        {
+            "code": "# Solution 2: Migrate from Python 2 to Python 3\nfrom __future__ import print_function\nprint(\"Running in Python 3 mode.\")",
+            "description": "Ensure compatibility with Python 3 if the code was written for Python 2."
+        },
+        {
+            "code": "# Solution 3: Catch and log startup errors\nimport logging\ntry:\n    main_application_function()\nexcept Exception as e:\n    logging.error(f\"Application startup failed: {e}\")",
+            "description": "Catch unexpected exceptions at startup and log errors for debugging."
+        }
     ],
     "PSCALE-242285 - System slow after latest patch": [
-      {
-        "code": "# Solution 1: Optimize database queries\nEXPLAIN ANALYZE SELECT * FROM large_table WHERE condition=true;",
-        "description": "Improve query performance."
-      },
-      {
-        "code": "# Solution 2: Upgrade hardware resources\nRecommended: 16GB RAM, SSD Storage.",
-        "description": "Consider upgrading system resources."
-      }
+        {
+            "code": "# Solution 1: Use asyncio for asynchronous tasks\nimport asyncio\nasync def main():\n    await asyncio.sleep(1)\n    print(\"Async execution completed\")\nasyncio.run(main())",
+            "description": "Leverage Python’s asyncio for non-blocking operations to improve performance."
+        },
+        {
+            "code": "# Solution 2: Optimize loops using list comprehensions\ndata = [x**2 for x in range(1000000)]",
+            "description": "Replace slow for-loops with list comprehensions where applicable."
+        },
+        {
+            "code": "# Solution 3: Use multiprocessing for CPU-bound tasks\nfrom multiprocessing import Pool\ndef compute(x): return x*x\nwith Pool(4) as p:\n    print(p.map(compute, range(10)))",
+            "description": "Use multiprocessing to parallelize CPU-intensive tasks."
+        }
     ],
     "PSCALE-246785 - API not returning expected data in production": [
-      {
-        "code": "# Solution 1: Check API configurations\nresponse = requests.get(\"http://api.example.com/data\")",
-        "description": "Verify API configurations."
-      },
-      {
-        "code": "# Solution 2: Check for database connectivity issues\nconn = psycopg2.connect(database=\"prod_db\", user=\"admin\")",
-        "description": "Ensure database connectivity."
-      }
+        {
+            "code": "# Solution 1: Validate API request and response\nimport requests\nresponse = requests.get(\"http://api.example.com/data\")\nif response.status_code != 200:\n    raise ValueError(\"API request failed\")",
+            "description": "Ensure API requests are successful and validate responses."
+        },
+        {
+            "code": "# Solution 2: Use JSON schema validation\nfrom jsonschema import validate\nschema = {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"number\"}}}\ndata = {\"id\": 123}\nvalidate(instance=data, schema=schema)",
+            "description": "Validate API responses using JSON schema to detect data inconsistencies."
+        },
+        {
+            "code": "# Solution 3: Implement retries for unreliable API calls\nimport requests\nfrom tenacity import retry, stop_after_attempt\n@retry(stop=stop_after_attempt(3))\ndef fetch_data():\n    return requests.get(\"http://api.example.com/data\")\nfetch_data()",
+            "description": "Use retry mechanisms to handle transient API failures."
+        }
     ],
     "default": [
         {
-            "code": "# Solution 1: Check API configurations\nresponse = requests.get(\"http://api.example.com/data\")",
-            "description": "Verify API configurations."
+            "code": "# Solution 1: Use f-strings for better string formatting\nname = \"John\"\nprint(f\"Hello, {name}!\")",
+            "description": "Replace old string formatting methods with f-strings for better readability."
         },
         {
-            "code": "# Solution 2: Upgrade hardware resources\nRecommended: 16GB RAM, SSD Storage.",
-            "description": "Consider upgrading system resources."
+            "code": "# Solution 2: Use pathlib instead of os.path\nfrom pathlib import Path\nfile_path = Path(\"/path/to/file.txt\")\nprint(file_path.exists())",
+            "description": "Pathlib provides a modern approach to file system operations."
         },
         {
-            "code": "# Solution 3: Optimize database queries\nEXPLAIN ANALYZE SELECT * FROM large_table WHERE condition=true;",
-            "description": "Improve query performance."
+            "code": "# Solution 3: Replace map() and filter() with list comprehensions\nnumbers = [1, 2, 3, 4, 5]\nsquares = [x**2 for x in numbers if x % 2 == 0]",
+            "description": "List comprehensions are more Pythonic and often faster."
         },
         {
-            "code": "# Solution 4: Refactor function to support Python 3\ndef legacy_code(): pass",
-            "description": "Use Python 3 features for compatibility."
+            "code": "# Solution 4: Use dataclasses for structured data\nfrom dataclasses import dataclass\n@dataclass\nclass User:\n    name: str\n    age: int\nuser = User(name=\"Alice\", age=30)",
+            "description": "Dataclasses simplify structured data handling compared to traditional classes."
         },
         {
-            "code": "# Solution 4: Refactor function to support Python 3\ndef legacy_code(): pass",
-            "description": "Use Python 3 features for compatibility."
+            "code": "# Solution 5: Use context managers for resource handling\nwith open(\"file.txt\", \"r\") as file:\n    content = file.read()",
+            "description": "Using `with` statements ensures proper resource management."
         }
     ]
-  }
-  
+}
