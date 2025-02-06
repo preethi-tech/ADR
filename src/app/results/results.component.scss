@@ -29,7 +29,7 @@ h3 {
 
 .scroll-container.horizontal {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding-bottom: 15px;
 }
 
@@ -93,9 +93,9 @@ h3 {
   height: 22px;
 }
 
-.skeleton-description {
-  width: 90%;
-}
+// .skeleton-description {
+//   width: 90%;
+// }
 
 .skeleton-code {
   width: 100%;
@@ -152,7 +152,12 @@ h3 {
   color: #555;
   line-height: 1.4;
   margin-top: 10px;
+  max-height: 100px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  white-space: normal;
 }
+
 
 /* Action Buttons */
 .action-buttons {
