@@ -1,0 +1,30 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th>Task Name</th>
+        <th>Description</th>
+        
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.name }}</td>
+        <td>{{ task.description }}</td>
+        
+        <td>
+          <!-- Loop through the task.status array and display each step dynamically -->
+          <ng-container *ngFor="let step of task.status; let i = index">
+            <button 
+              [ngClass]="getStepClass(step)" 
+              [disabled]="step !== '1'"> 
+              {{ userDefinedSteps[i] || 'Step ' + (i + 1) }}
+            </button>
+
+            <span *ngIf="i < task.status.length - 1"> → </span>
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

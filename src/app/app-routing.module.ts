@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ResultsComponent } from './results/results.component';
+import { StatusComponent } from './status/status.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'results', component: ResultsComponent },
+  { path: 'status', component: StatusComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

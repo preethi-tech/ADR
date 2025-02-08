@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ResultsComponent } from './results/results.component'
 import {  HttpClientModule } from '@angular/common/http';
+import { StatusComponent } from './status/status.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {  HttpClientModule } from '@angular/common/http';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ResultsComponent
+    ResultsComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
