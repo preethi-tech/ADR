@@ -1,0 +1,41 @@
+.modal-content {
+  background-color: #f7f7f7;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400%;
+  height: 80%;
+  margin: 10% auto;
+  overflow: auto;
+}
+
+.modal-inner-content {
+  padding: 20px;
+}
+
+.fixes-container {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.fix-container {
+  width: 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: auto;
+  box-sizing: border-box;
+  margin: 10px;
+}
+
+.before {
+  background-color: #F6EABC;
+}
+
+.after {
+  background-color: #F6EABC;
+}
+
+h6 {
+  margin-top: 0;
+}

@@ -17,6 +17,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ResultsComponent } from './results/results.component'
 import {  HttpClientModule } from '@angular/common/http';
 import { StatusComponent } from './status/status.component';
+import { BranchModalComponent } from './branch-modal/branch-modal.component';
+import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,7 @@ import { StatusComponent } from './status/status.component';
     HeaderComponent,
     FooterComponent,
     ResultsComponent,
-    StatusComponent
+    StatusComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +40,14 @@ import { StatusComponent } from './status/status.component';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    BranchModalComponent,
+    CommonModule,
+    MatDialogModule,
+    MatStepperModule
+    
+    
+],
   providers: [
     provideAnimationsAsync()
   ],

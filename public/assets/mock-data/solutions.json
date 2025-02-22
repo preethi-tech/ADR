@@ -1,19 +1,6 @@
 {
-    "PSCALE-245685 - Application crashes on startup": [
-        {
-            "code": "# Solution 1: Update dependencies in requirements.txt\nimport subprocess\nsubprocess.run(['pip', 'install', '--upgrade', '-r', 'requirements.txt'])",
-            "description": "Ensure all dependencies are up-to-date to avoid compatibility issues."
-        },
-        {
-            "code": "# Solution 2: Migrate from Python 2 to Python 3\nfrom __future__ import print_function\nprint(\"Running in Python 3 mode.\")",
-            "description": "Ensure compatibility with Python 3 if the code was written for Python 2."
-        },
-        {
-            "code": "# Solution 3: Catch and log startup errors\nimport logging\ntry:\n    main_application_function()\nexcept Exception as e:\n    logging.error(f\"Application startup failed: {e}\")",
-            "description": "Catch unexpected exceptions at startup and log errors for debugging."
-        }
-    ],
-    "PSCALE-242285 - System slow after latest patch": [
+
+    "PSCALE-226270 - System slow after latest patch": [
         {
             "code": "# Solution 1: Use asyncio for asynchronous tasks\nimport asyncio\nasync def main():\n    await asyncio.sleep(1)\n    print(\"Async execution completed\")\nasyncio.run(main())",
             "description": "Leverage Python’s asyncio for non-blocking operations to improve performance."
@@ -27,7 +14,22 @@
             "description": "Use multiprocessing to parallelize CPU-intensive tasks."
         }
     ],
-    "PSCALE-246785 - API not returning expected data in production": [
+    "PSCALE-245688 - Division by Zero and Type Mismatch Errors": [
+        {
+            "code": "# Solution 1: Check for empty list before division\nif len(numbers) == 0:\n    return 0",
+            "description": "Add a check to return 0 or a default value if the list is empty."
+        },
+        {
+            "code": "# Solution 2: Filter out non-numeric values\nnumbers = [num for num in numbers if isinstance(num, (int, float))]",
+            "description": "Ensure only numeric values are included in the sum calculation."
+        },
+        {
+            "code": "# Solution 3: Raise a custom exception for empty input\nif len(numbers) == 0:\n    raise ValueError('List is empty, cannot calculate average.')",
+            "description": "Raise an exception to handle the case of an empty list explicitly."
+        }
+    
+        ],
+    "PSCALE-269756 - API not returning expected data in production": [
         {
             "code": "# Solution 1: Validate API request and response\nimport requests\nresponse = requests.get(\"http://api.example.com/data\")\nif response.status_code != 200:\n    raise ValueError(\"API request failed\")",
             "description": "Ensure API requests are successful and validate responses."

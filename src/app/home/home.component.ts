@@ -28,9 +28,10 @@ export class HomeComponent {
 
   userQuery: string = '';
   suggestions: string[] = [
-    'PSCALE-245685 - Application crashes on startup',
-    'PSCALE-242285 - System slow after latest patch',
-    'PSCALE-246785 - API not returning expected data in production',
+  
+    'PSCALE-226270 - System slow after latest patch',
+    'PSCALE-245688 - Division by Zero and Type Mismatch Errors',
+    'PSCALE-269756 - API not returning expected data in production',
   ];
 
   constructor(private router: Router) {}
